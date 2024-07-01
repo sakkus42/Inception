@@ -1,3 +1,4 @@
+
 CREATE DATABASE IF NOT EXISTS wordpress;
 CREATE USER IF NOT EXISTS 'sakkus'@'%' IDENTIFIED BY 'asdasd';
 GRANT ALL PRIVILEGES ON wordpress.* TO 'sakkus'@'%';

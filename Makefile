@@ -3,18 +3,18 @@ IMAGES		= $(shell docker images -qa)
 VOLUMES		= $(shell docker volume ls -q)
 NETWORKS	= $(shell docker network ls -q)
 
-up				: volume_dir
-				@ docker compose -f srcs/docker-compose.yml up --build
+up			: volume_dir
+				@ docker-compose -f srcs/docker-compose.yml up --build
 
 down			:
-				@ docker compose -f srcs/docker-compose.yml down
+				@ docker-compose -f srcs/docker-compose.yml down
 
 hostname		:
 				@ echo "127.0.0.1 sakkus.42.fr" >> /etc/hosts
 
 volume_dir		:
-				@ mkdir -p /home/biekinci/data/wordpress
-				@ mkdir -p /home/biekinci/data/mariadb
+				@ mkdir -p /home/sakkus/data/wordpress
+				@ mkdir -p /home/sakkus/data/mariadb
 
 rm_containers	: down
 				@ docker rm -f $(CONTAINERS); true;
